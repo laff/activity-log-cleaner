@@ -281,7 +281,10 @@ chrome.runtime.onConnect.addListener(function(port) {
 
 			case "update":
 
-				consol.log("got me some update");
+				console.log("got me some update");
+
+				console.log(msg.order);
+
 
 				break;
 		}

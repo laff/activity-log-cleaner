@@ -31,7 +31,10 @@ var Options = new Options();
 chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
 
 	console.log("request: " + request);
-    switch(request.type) {
+
+	var typ = request.type;
+
+    switch(typ) {
 
 
     	case "updatepopup":
@@ -50,19 +53,20 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
         	chrome.extension.sendMessage({active: Options.activated, name: 'activated'});
 
         	// Telling the content script what up too
-        	communicate(Options, 'activate');
+        	communicate(Options, typ);
 
         	break;
 
         case "update": 
 
         	Options.updateinfo(request);
+        	communicate(Options, typ)
 
         	break;
 
         case "options":
 
-        	communicate(Options, 'options');
+        	communicate(Options, typ);
 
         	console.log("background was sent options, calling communication");
 
