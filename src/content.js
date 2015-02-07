@@ -37,10 +37,10 @@ Navigation.prototype.doWhat = function () {
 	
 	var that = this;
 
-	// delete all available shit, then reload page?
+	// delete all available stuff, then reload page?
 	setTimeout(
 		function() {
-			that.anyShit();
+			that.anystuff();
 		}, that.randomBreak()*5
 	);
 
@@ -72,7 +72,7 @@ Navigation.prototype.scrollDown = function () {
 						}
 
 					} else {
-						nav.anyShit();
+						nav.anystuff();
 					}
 
 				},
@@ -90,7 +90,7 @@ Navigation.prototype.scrollDown = function () {
  *	Function that finds any comment on your activity page!
  *
 **/
-Navigation.prototype.anyShit = function () {
+Navigation.prototype.anystuff = function () {
 
 	// <a>
 	var that = this,
@@ -100,7 +100,7 @@ Navigation.prototype.anyShit = function () {
 		pass = 0,
 		found = false;
 
-	// first finding all the shit & putting it in an array
+	// first finding all the stuff & putting it in an array
 	for (i; i < hrefs.length; i++) {
 
 		var tmpStr = hrefs[i].getAttribute("aria-label");
@@ -110,7 +110,7 @@ Navigation.prototype.anyShit = function () {
 		if (tmpStr == "Allowed on Timeline" || tmpStr == "Hidden from Timeline") {
 
 			if (pass == passed) {
-				this.decideShit(hrefs[i]);
+				this.decidestuff(hrefs[i]);
 				found = true;
 				i = hrefs.length;
 			} else {
@@ -130,7 +130,7 @@ Navigation.prototype.anyShit = function () {
  *	
  *	Decide if its an unlike, delete or hide.
 **/
-Navigation.prototype.decideShit = function(shit) {
+Navigation.prototype.decidestuff = function(stuff) {
 
 	console.log("deciding");
 
@@ -146,9 +146,9 @@ Navigation.prototype.decideShit = function(shit) {
 	setTimeout(
 		function() {
 			// clicking the timeline-event-edit
-			shit.click();
+			stuff.click();
 
-			// INCEPTION THIS SHIT
+			// INCEPTION THIS stuff
 			setTimeout(
 				function() {
 
@@ -171,7 +171,7 @@ Navigation.prototype.decideShit = function(shit) {
 					}
 
 
-					// if a post that can be deleted is found, click that shit
+					// if a post that can be deleted is found, click that stuff
 					if (found) {
 						console.log('deleting!');
 						console.log(negative);
@@ -195,7 +195,7 @@ Navigation.prototype.decideShit = function(shit) {
 
 								// If no "DELETE POST" popup was found, continue to next.
 								if (submit == null) {
-									that.anyShit();
+									that.anystuff();
 								} else {
 
 									// if "delete post" popup was found, click it and wait for next action
@@ -204,7 +204,7 @@ Navigation.prototype.decideShit = function(shit) {
 									setTimeout(
 										function() {
 
-											nav.anyShit();
+											nav.anystuff();
 
 										}, that.randomBreak() + 6000
 									);
